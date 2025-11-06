@@ -1,9 +1,4 @@
----
-title: "Arch Linux installation"
-layout: default
----
 
-# IamAdamaa.github.io
 # Part 1: Installing Arch Linux
 
 ## Installing the Arch ISO file
@@ -15,7 +10,8 @@ layout: default
 - Created a new virtual machine on VMware
 - Uploaded the arch ISO file I acquired earlier into the *Installer disc image file (ISO)* section
 
-**Issue I ran into:** When uploading the ISO into VMware it said it "could not detect which OS is in the disc image". Then it made me manually select the Linux distro I am using, but Arch linux wa[...]  
+**Issue I ran into:** When uploading the ISO into VMware it said it "could not detect which OS is in the disc image". Then it made me manually select the Linux distro I am using, but Arch linux was not an option. I figured out the reason was because VMware doesn't have a pre-set for Arch Linux. My solution to this issue was selecting *other 6.x kernel 64-bit* because its the Linux Kernel version Arch uses.
+
 - Gave the VM an adequate amount of resources.
 	- 20 Gb of storage
 	- 4 Gb of ram
@@ -32,7 +28,8 @@ layout: default
 
 ## Network configuration
 - confirmed my network interface is listed and enabled using the command `ip link`
-	- I had `ens33` which means I am connected via ethernet and "state **UP**" means its enabled
+	Should look like this: ![[Pasted image 20251102223313.png]]
+	- ens33 means I am connected via ethernet and "state **UP**" means its enabled
 
 - To further confirm connection and that DNS is working I used the command `ping ping.archlinux`
 
@@ -99,4 +96,35 @@ layout: default
 - Next I installed a display manager so its easier to log in. To do this I used the commands `sudo pacman -S sddm` then `sudo systemctl enable sddm.service`
 - Reboot
 
-**Issue I ran into:** When I rebooted into LXQt, I got to the sddm display manager log in page, but I had not created a user at that point so there was no way to log in. I ended up having to switc[...]
+**Issue I ran into:** When I rebooted into LXQt, I got to the sddm display manager log in page, but I had not created a user at that point so there was no way to log in. I ended up having to switch to a different terminal using crtl + alt + f3 to create a user, so I could log in.
+
+## Adding users
+- To create a user, I used the command `sudo useradd -m -G wheel -s /bin/bash adam` which adds me to group wheel
+- To create a password for that user, I used `sudo passwd adam`
+- (I did the same thing for the user codi)
+
+- To give the wheel group sudo permissions, use command `sudo EDITOR=nano visudo` and uncomment `%wheel ALL=(ALL) ALL`
+## Installing a different shell
+
+- For this part I installed zsh as my other shell by using `sudo pacman -S zsh`
+- To switch from bash to zsh type `zsh` and to switch from zsh to bash type `bash`
+
+## Installing SSH
+
+- First I installed SSH using the command `sudo pacman -S openssh`
+- Then to enable it at boot, I used `sudo systemctl enable sshd.service`
+## color coding
+
+- First I went to the configuration file `~/.bashrc` to edit the colors of my bash terminal, to do this I used `nano ~/.bashrc`
+- Inside bashrc, I edited the prompt string (PS1) to `PS1=[\033[31m\u\033[0m@\033[97m\h\033[36m \W\033[0m]\$`
+	- `\u` is the current user
+	- `\h` is the host machines name
+	- `\W` is the working directory
+	- `\033` starts the color modification and `[#m` is the desired color code ex. `[31m` is the red color code
+
+## Aliases
+- First I opened back up the bashrc config file by using `nano ~/.bashrc`
+- Then I added aliases using the format `alias name='command'`. The ones I added are:
+	- `alias c='clear'` - type `c` in the terminal to clear it
+	- `alias u='sudo pacman -Syu'` - type `u` in the terminal to update the system and packages
+	- `alias path='echo -e ${PATH//:/\\n}'` - type `path` in the terminal to get all paths to commands in a human readable format
