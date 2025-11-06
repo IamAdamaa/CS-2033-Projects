@@ -27,9 +27,8 @@
 
 
 ## Network configuration
-- confirmed my network interface is listed and enabled using the command `ip link`
-	Should look like this: ![[Pasted image 20251102223313.png]]
-	- ens33 means I am connected via ethernet and "state **UP**" means its enabled
+- I confirmed my network interface is listed and enabled using the command `ip link`
+  - I had `ens33` which means I am connected via ethernet and "state **UP**" meant its enabled
 
 - To further confirm connection and that DNS is working I used the command `ping ping.archlinux`
 
