@@ -67,7 +67,7 @@ sudo systemctl enable --now docker
 sudo docker run hello-world
 ```
 
-![Screenshot1](CS-2033-Projects/Screenshots/Screenshot1.png)
+![Screenshot1](CS-2033-Projects/Sceenshots/Screenshot1.png)
 
 ## Step 2: Setting up an application
 
@@ -93,10 +93,10 @@ This command will build the `example-voting-app` image and start all services in
 5. Checked the results database by going to`http://localhost:8081` on Firefox
 
 *Vote app*
-![Screenshot2](CS-2033-Projects/Screenshots/Screenshot2.png)
+![Screenshot2](CS-2033-Projects/Sceenshots/Screenshot2.png)
 
 *results*
-![Screenshot3](CS-2033-Projects/Screenshots/Screenshot3.png)
+![Screenshot3](CS-2033-Projects/Sceenshots/Screenshot3.png)
 
 `docker-compose.yml` *code block*
-![Screenshot4](CS-2033-Projects/Screenshots/Screenshot4.png)
+![Screenshot4](CS-2033-Projects/Sceenshots/Screenshot4.png)
