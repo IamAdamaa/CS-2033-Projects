@@ -70,7 +70,7 @@ curl ifconfig.me
 ```
 
 *docker-compose.yml file*
-![[Screenshot 2025-11-23 232547.png]]
+![Screenshot2.1](Sceenshots/Screenshot2.1.png)
 
 7. Got the VPN up and running
 ```
@@ -88,9 +88,9 @@ docker compose up -d
 3. Went to IP link before I turned it one and after I turned it on to check if it worked
 
 *Obfuscated phone IP before I turned on VPN*
-![[Pasted image 20251123231821.png]]
+![Screenshot2.2](Sceenshots/Screenshot2.2.png)
 *Obfuscated phone IP after I turned on VPN*
-![[Pasted image 20251123233255.png]]
+![Screenshot2.3](Sceenshots/Screenshot2.3.png)
 
 #### Laptop VPN Setup
 
@@ -100,4 +100,4 @@ docker compose up -d
 
 
 *Obfuscated original IP address on the right and VPN IP address on the left*
-![[IPscreenshot.png]]
+![Screenshot2.4](Sceenshots/Screenshot2.4.png)
